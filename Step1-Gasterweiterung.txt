@@ -1,0 +1,14 @@
+## Gasterweiterung installieren
+## Anleitung unter:
+# https://www.youtube.com/watch?v=6bAcsQFCEN8
+# https://forketyfork.medium.com/centos-8-no-urls-in-mirrorlist-error-3f87c3466faa
+sudo sed -i -e "s|mirrorlist=|#mirrorlist=|g" /etc/yum.repos.d/CentOS-*
+sudo sed -i -e "s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g" /etc/yum.repos.d/CentOS-*
+sudo yum update
+sudo yum install tar bzip2 kernel-devel kernel-headers perl gcc make elfutils-libelf-devel
+sudo init 6
+# Gasterweiterung einbinden und installieren
+# Inhalte auf bidirektional stellen
+# Drag und Drop auf bidirektional stellen
+sudo init 6
+init 0

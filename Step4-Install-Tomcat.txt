@@ -1,0 +1,73 @@
+## IIQ Installation:
+# https://www.youtube.com/watch?v=rG4WhEZ6I8Y
+## Install Tomcat
+
+#sudo yum search openjdk
+sudo dnf install java-11-openjdk-devel
+java --version
+
+sudo useradd -m -d /opt/tomcat -U -s /bin/false tomcat
+cd /opt/tomcat/
+cd
+
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.62/bin/apache-tomcat-9.0.62.tar.gz
+tar xzf apache-tomcat-9.0.62.tar.gz
+sudo mv apache-tomcat-9.0.62/* /opt/tomcat/
+sudo chown -R tomcat:tomcat /opt/tomcat/
+
+# sudo vim /opt/tomcat/webapps/manager/META-INF/context.xml
+# sudo vim /opt/tomcat/webapps/host-manager/META-INF/context.xml
+
+sudo vim /opt/tomcat/conf/tomcat-users.xml
+#folgende Zeilen hinzufügen  
+<role rolename="manager-gui"/>
+<user username="tomcat" password="a" roles="manager-gui" />
+<role rolename="admin-gui"/>
+<user username="tomcat" password="a" roles="manager-gui, admin-gui" />
+#ende einfügen
+
+sudo vim /etc/systemd/system/tomcat.service
+### folgende Zeilen einfügen
+[Unit]
+Description=Tomcat 9
+After=network.target
+
+[Service]
+Type=forking
+
+User=tomcat
+Group=tomcat
+
+Environment="JAVA_HOME=/usr/lib/jvm/jre"
+Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom"
+Environment="CATALINA_BASE=/opt/tomcat"
+Environment="CATALINA_HOME=/opt/tomcat"
+Environment="CATALINA_PID=/opt/tomcat/temp/tomcat.pid"
+Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+
+### ende Einfügen
+
+
+sudo setenforce 0
+sudo systemctl daemon-reload
+sudo systemctl enable tomcat.service
+
+sudo systemctl start tomcat.service
+sudo systemctl status tomcat.service
+
+# sudo systemctl stop firewalld
+# sudo systemctl mask firewalld
+# sudo systemctl disable firewalld
+vim /etc/selinux/config
+## darin SELINUX=disabled
+
+systemctl start tomcat.service
+
+# teste den Zugriff http://127.0.0.1:8080 über firefox
+init 0

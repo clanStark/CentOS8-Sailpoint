@@ -1,0 +1,20 @@
+## IIQ Installation:
+# https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-centos-8-de
+## Install MySQL server 5.6 or above
+sudo dnf install mysql-server
+sudo systemctl start mysqld.service
+sudo systemctl status mysqld
+sudo systemctl enable mysqld
+# sudo systemctl disable mysqld
+
+sudo mysql_secure_installation
+# VALIDATE PASSWORD COMPONENT
+# password = a
+# Remove anonymous users? Y
+# Disallow root login remotely? y
+# Remove test database and access to it? n
+# Reload privilege tables now? y
+
+sudo mysqladmin -u root -p version
+# sudo mysql -u root -p
+init 0

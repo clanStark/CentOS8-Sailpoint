@@ -1,0 +1,30 @@
+## IIQ Installation:
+# https://www.triveti.com/identity-governance/sailpoint-identityiq/how-to-install-sailpoint-identityiq/
+# Oracle MySQL: create the repository for IdentityIQ 8.1
+cd /opt/tomcat/webapps/identityiq/WEB-INF/database
+sudo mysql -u root -p
+
+    mysql> 
+	source /opt/tomcat/webapps/identityiq/WEB-INF/database/create_identityiq_tables-8.1.mysql
+
+    mysql> 
+	show databases;
+    +——————–+
+    | Database |
+    +——————–+
+    | information_schema |
+    | identityiq |
+    | identityiqPlugin |
+    | mysql |
+    | performance_schema |
+    | sys |
+    +——————–+
+
+    mysql> 
+	ALTER USER 'identityiq'@'localhost' IDENTIFIED BY 'identityiq';
+	GRANT ALL PRIVILEGES ON identityiq.* TO 'identityiq'@'localhost';
+    mysql> 
+	GRANT ALL PRIVILEGES ON identityiqPlugin.* TO 'identityiq'@'localhost';
+    mysql> 
+	exit
+init 0

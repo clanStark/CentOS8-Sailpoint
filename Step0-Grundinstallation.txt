@@ -1,0 +1,15 @@
+### CentOS8 Stream Installation Anleitung:
+## https://www.youtube.com/watch?v=NJYzYClIwxw
+# Server Mit GUI
+# Virtuelle Gasterweiterung installiert
+# root passwort = a
+# Benutzer mit Admin Berechtigung angelegt
+## spadmin
+## password = a
+## Netzwerk aktivieren
+## Installation auf Deutsch
+## Zeitzone Berlin
+
+# 7 GB RAM
+# 2 Prozessoren
+# 60 GB Festplatte Dynamisch

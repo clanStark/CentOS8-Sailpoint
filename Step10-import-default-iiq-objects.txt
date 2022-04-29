@@ -1,0 +1,19 @@
+## IIQ Installation:
+# https://www.triveti.com/identity-governance/sailpoint-identityiq/how-to-install-sailpoint-identityiq/
+# Import the default IdentityIQ objects to init the system
+sudo chmod +x /opt/tomcat/webapps/identityiq/WEB-INF/bin/iiq
+sudo timedatectl set-timezone UTC
+
+sudo systemctl restart tomcat.service
+sudo systemctl restart mysqld.service
+
+### timedatectl set führte nicht zum gewünschten Erfolg
+sudo /opt/tomcat/webapps/identityiq/WEB-INF/bin/iiq console -j
+    Using JLine
+    > import init.xml
+
+    > quit
+
+sudo systemctl restart tomcat.service
+sudo systemctl restart mysqld.service
+init 0

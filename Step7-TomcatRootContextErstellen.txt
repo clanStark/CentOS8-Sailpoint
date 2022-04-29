@@ -1,0 +1,11 @@
+## IIQ Installation:
+# https://www.triveti.com/identity-governance/sailpoint-identityiq/how-to-install-sailpoint-identityiq/
+# https://community.sailpoint.com/mpomh84452/attachments/mpomh84452/IIQ_docs/305/1/7_2_IdentityIQ_Installation_Guide.pdf
+# Apache Tomcat: create the root context for ‘identityiq’ and extract the war file
+cd /opt/tomcat/webapps
+sudo mkdir identityiq
+cd identityiq
+sudo jar -xvf /var/tmp2/identityiq.war
+cd /opt/tomcat/webapps/identityiq/WEB-INF/bin
+sudo chmod 777 iiq
+init 0

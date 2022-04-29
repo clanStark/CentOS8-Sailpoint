@@ -1,0 +1,13 @@
+## Ein paar initiale Setups
+## Anleitung unter:
+# https://www.digitalocean.com/community/tutorials/initial-server-setup-with-centos-8
+sudo dnf install nano
+sudo dnf install firewalld -y
+sudo systemctl start firewalld
+sudo systemctl status firewalld
+sudo firewall-cmd --permanent --list-all
+# firewall-cmd --get-services
+# firewall-cmd --permanent --add-service=http
+firewall-cmd --reload
+
+init 0

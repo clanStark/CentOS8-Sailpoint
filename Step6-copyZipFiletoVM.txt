@@ -1,0 +1,12 @@
+## IIQ Installation:
+# https://www.triveti.com/identity-governance/sailpoint-identityiq/how-to-install-sailpoint-identityiq/
+# Copy the zip file identityiq-8.1.zip to the VM & unzip it
+## in dieses Verzeichnis kopieren: 
+sudo mkdir cd /var/tmp2 
+cd Downloads/
+sudo cp identityiq-8.1.zip /var/tmp2/identityiq-8.1.zip
+sudo cd /var/tmp2
+##
+unzip identityiq-8.1.zip
+ls -latr
+init 0

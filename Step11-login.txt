@@ -1,0 +1,7 @@
+## IIQ Installation:
+# https://www.triveti.com/identity-governance/sailpoint-identityiq/how-to-install-sailpoint-identityiq/
+# Start Apache Tomcat and test login page via a browser.
+
+# firefox http://localhost:8080/identityiq/login.jsf
+
+# Use spadmin/admin as default administrator user.

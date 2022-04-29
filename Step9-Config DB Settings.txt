@@ -1,0 +1,28 @@
+## IIQ Installation:
+# https://www.triveti.com/identity-governance/sailpoint-identityiq/how-to-install-sailpoint-identityiq/
+# Configure Database Settings that IdentityIQ will use to connect to its repository
+
+cd /opt/tomcat/webapps/identityiq/WEB-INF/classes/
+sudo cp iiq.properties iiq.properties_original
+
+sudo nano /opt/tomcat/webapps/identityiq/WEB-INF/classes/iiq.properties
+
+    ### Data Source Properties ###
+
+    dataSource.maxWaitMillis=10000
+    dataSource.maxTotal=50
+    dataSource.minIdle=5
+
+    dataSource.minEvictableIdleTimeMillis=300000
+
+    dataSource.maxOpenPreparedStatements=-1
+
+    dataSource.username=identityiq
+    dataSource.password=1:iCAlakm5CVUe7+Q6hVJIBA==
+
+    ### MySQL/Aurora (without SSL) ###
+
+    dataSource.url=jdbc:mysql://localhost/identityiq?useServerPrepStmts=true&serverTimeZone=Europe/Rome&tinyInt1isBit=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    dataSource.driverClassName=com.mysql.cj.jdbc.Driver
+    sessionFactory.hibernateProperties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
+init 0
